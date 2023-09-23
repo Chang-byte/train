@@ -4,3 +4,25 @@ server:
   # 方便后面的路由转发，在网关模块里，将接口带有/member的请求都转发到member模块。
   servlet:
     context-path: /member
+
+
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url:  jdbc:mysql://localhost:3306/train_member?characterEncoding=UTF8&autoReconnect=true&serverTimezone=Asia/Shanghai&useSSL=false
+    username: root
+    password: root
+
+
+# mapper 映射文件的地址
+mybatis:
+  mapper-locations: classpath:/mapper/**/*.xml
+
+logging:
+  level:
+    com:
+      chang:
+        train:
+          member:
+            mapper: trace

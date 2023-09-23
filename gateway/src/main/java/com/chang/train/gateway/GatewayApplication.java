@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 /**
  * @title: GatewayApplication
@@ -21,7 +22,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 47:54.142 INFO  r.netty.http.server.AccessLog :279  reactor-http-nio-2
  * 127.0.0.1 - - [23/9月/2023:14:47:53 +0800] "GET /member/hello HTTP/1.1" 200 12 186
  */
-@SpringBootApplication
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 public class GatewayApplication {
     private static final Logger LOG = LoggerFactory.getLogger(GatewayApplication.class);
     public static void main(String[] args) {
