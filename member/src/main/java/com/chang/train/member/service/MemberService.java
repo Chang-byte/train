@@ -4,6 +4,7 @@ import cn.hutool.core.collection.CollectionUtil;
 import com.chang.train.member.domain.Member;
 import com.chang.train.member.domain.MemberExample;
 import com.chang.train.member.mapper.MemberMapper;
+import com.chang.train.member.req.MemberRegisterReq;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
@@ -28,10 +29,11 @@ public class MemberService {
 
     /**
      * 根据手机号注册用户
-     * @param mobile 用户输入的手机号
+     * @param memberRegisterReq 用户注册的请求。
      * @return 注册成功的用户的Id。
      */
-    public long register(String mobile){
+    public long register(MemberRegisterReq memberRegisterReq){
+        String mobile = memberRegisterReq.getMobile();
         MemberExample memberExample = new MemberExample();
         memberExample.createCriteria().andMobileEqualTo(mobile);
         List<Member> list = memberMapper.selectByExample(memberExample);
