@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.env.ConfigurableEnvironment;
 
 
@@ -15,6 +16,7 @@ import org.springframework.core.env.ConfigurableEnvironment;
  * @Version 1.0
  */
 @SpringBootApplication
+@ComponentScan("com.chang")
 public class MemberApplication {
     private static final Logger LOG = LoggerFactory.getLogger(MemberApplication.class);
 
