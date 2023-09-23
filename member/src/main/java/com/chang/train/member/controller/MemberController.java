@@ -3,6 +3,7 @@ package com.chang.train.member.controller;
 import com.chang.train.member.service.MemberService;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Version 1.0
  */
 @RestController
-@RequestMapping
+@RequestMapping("/member")
 public class MemberController {
 
     @Resource
@@ -25,5 +26,10 @@ public class MemberController {
         int count = memberService.count();
         System.out.println(count);
         return "count:" + 1;
+    }
+
+    @PostMapping("/register")
+    public long register(String mobile){
+        return memberService.register(mobile);
     }
 }
