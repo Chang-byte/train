@@ -1,6 +1,8 @@
 package com.chang.train.member.service;
 
 import cn.hutool.core.collection.CollectionUtil;
+import com.chang.train.exception.BusinessException;
+import com.chang.train.exception.BusinessExceptionEnum;
 import com.chang.train.member.domain.Member;
 import com.chang.train.member.domain.MemberExample;
 import com.chang.train.member.mapper.MemberMapper;
@@ -39,7 +41,8 @@ public class MemberService {
         List<Member> list = memberMapper.selectByExample(memberExample);
 
         if (CollectionUtil.isNotEmpty(list)){
-            throw new RuntimeException("用户已经存在!");
+//            throw new RuntimeException("用户已经存在!");
+            throw new BusinessException(BusinessExceptionEnum.MEMBER_MOBILE_EXIST);
         }
 
         Member member = new Member();
