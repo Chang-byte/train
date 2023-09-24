@@ -40,9 +40,9 @@
         <javaClientGenerator targetProject="../member/src/main/java"
                              targetPackage="com.chang.train.member.mapper"
                              type="XMLMAPPER"/>
-
+<!--        todo 数据库下的哪一张表，也需要修改。-->
 <!--        <table tableName="member" domainObjectName="Member"/>-->
-<!--        <table tableName="passenger" domainObjectName="Passenger"/>-->
-                <table tableName="ticket" domainObjectName="Ticket"/>
+        <table tableName="passenger" domainObjectName="Passenger"/>
+<!--                <table tableName="ticket" domainObjectName="Ticket"/>-->
     </context>
 </generatorConfiguration>
