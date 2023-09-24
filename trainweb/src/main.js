@@ -34,7 +34,10 @@ axios.interceptors.response.use(function (response) {
     console.log('返回错误：', error);
     return Promise.reject(error);
 });
-// axios.defaults.baseURL = process.env.VUE_APP_SERVER;
-axios.defaults.baseURL = 'http://localhost:8000';
+
+// 通过读取配置文件的方式来，读取配置。 注意启动脚本的启动参数 --mode dev 统一请求的是后端的gateway的地址。
+// 通过启动参数可以进行vue cli 的多环境配置。
+axios.defaults.baseURL = process.env.VUE_APP_SERVER;
+// axios.defaults.baseURL = 'http://localhost:8000';
 console.log('环境：', process.env.NODE_ENV);
 console.log('服务端：', process.env.VUE_APP_SERVER);

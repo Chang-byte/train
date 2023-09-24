@@ -1,9 +1,9 @@
 <template>
   <nav>
     <!--相当于两个a链接，公共的东西，放到app.vue里面。-->
-    <router-link to="/">Home</router-link>
-    |
-    <router-link to="/about">About</router-link>
+<!--    <router-link to="/">Home</router-link>-->
+    <!--    |-->
+    <!--    <router-link to="/about">About</router-link>-->
   </nav>
 
   <!--  各个路由(url地址)对应不同的内容(vue页面),会填充到 <router-view/> 区域, 主要是展示不同组件的内容。-->
@@ -20,7 +20,7 @@
 }
 
 nav {
-  padding: 30px;
+  padding: 0px;
 }
 
 nav a {

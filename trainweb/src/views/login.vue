@@ -75,8 +75,11 @@ export default defineComponent({
         let data = response.data;
         if (data.success) {
           notification.success({description: '登录成功！'});
-          // 登录成功，跳到控台主页,进行路由跳转
-          router.push("/welcome");
+          // 登录成功，跳到控台主页,进行路由跳转。
+          router.push("/");
+          console.log('content: ', data.content)
+          console.log('SessionStorage: ', window.SessionStorage)
+          // 根据名称来对变量进行赋值。调用store里面的方法。
           store.commit("setMember", data.content);
         } else {
           notification.error({description: data.message});

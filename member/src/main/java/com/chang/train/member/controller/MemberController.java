@@ -58,6 +58,23 @@ public class MemberController {
     }
 
 
+    /**
+     * 单点登录： redis + token; jwt
+     *
+     * redis + token:
+     * 登录开始，校验用户名和密码，生成随机token，每次都不一样，将token存入到redis。
+     * 校验开始：从header中获取token，根据token去redis中查询，如果存在登录成功，否则，不成功。
+     *
+     *
+     * jwt：
+     * 不需要从redis中获取，因为jwt本身就是根据特定的规则 + 用户的信息
+     * 生成字符串，就能直接定位某一个具体的用户。 使用工具包校验token，反向解密信息。
+     * 存在的问题：
+     *  1.token被解密? 加盐值。 每个项目的盐值不能一样。
+     *  2.token被拿到第三方使用？ 自己的产品，被别人包成一个界面，做成他们收费的产品。 ? 限流
+     * @param req
+     * @return
+     */
     @PostMapping("/login")
     public CommonResp<MemberLoginResp> login(@Valid @RequestBody MemberLoginReq req) {
         MemberLoginResp resp = memberService.login(req);
