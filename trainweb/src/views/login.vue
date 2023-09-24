@@ -49,6 +49,8 @@ import store from "@/store";
 export default defineComponent({
   name: "login-view",
   setup() {
+    // ref 声明基础的数据类型。 reactive生命对象或对象数组。
+    // 对ref变量的取值、赋值都必须加: .value
     const router = useRouter();
 
     const loginForm = reactive({

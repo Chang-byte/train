@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @title: GatewayApplication
@@ -23,6 +24,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
  * 127.0.0.1 - - [23/9月/2023:14:47:53 +0800] "GET /member/hello HTTP/1.1" 200 12 186
  */
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+@ComponentScan("com.chang")
 public class GatewayApplication {
     private static final Logger LOG = LoggerFactory.getLogger(GatewayApplication.class);
     public static void main(String[] args) {
