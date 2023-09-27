@@ -36,6 +36,10 @@ public class PassengerService {
     private PassengerMapper passengerMapper;
 
     // 后续界面操作时，保存后，界面会刷新列表，不需要返回保存成功后的数据。
+    /**
+     * 根据id是否为空，判断是新增保存，还是修改保存。
+     * @param req
+     */
     public void save(PassengerSaveReq req){
         DateTime now = DateTime.now();
         Passenger passenger = BeanUtil.copyProperties(req, Passenger.class);
@@ -46,6 +50,7 @@ public class PassengerService {
             // todo 使用AOP来自动封装时间。
             passenger.setCreateTime(now);
             passenger.setUpdateTime(now);
+            // 更新操作
             passengerMapper.insert(passenger);
         } else {
             passenger.setUpdateTime(now);
@@ -55,7 +60,7 @@ public class PassengerService {
 
 
     /**
-     * 查询所有的乘客
+     * 查询所有的乘客，包括分页查询
      * @param req
      * @return
      */
@@ -73,6 +78,7 @@ public class PassengerService {
         PageHelper.startPage(req.getPage(), req.getSize());
         List<Passenger> passengerList = passengerMapper.selectByExample(passengerExample);
 
+        // 自动生成一个select count 去查询条数。
         PageInfo<Passenger> pageInfo = new PageInfo<>(passengerList);
         LOG.info("总行数：{}", pageInfo.getTotal());
         LOG.info("总页数：{}", pageInfo.getPages());
@@ -83,6 +89,10 @@ public class PassengerService {
         pageResp.setTotal(pageInfo.getTotal());
         pageResp.setList(list);
         return pageResp;
+    }
+
+    public void delete(Long id) {
+        passengerMapper.deleteByPrimaryKey(id);
     }
 
 }

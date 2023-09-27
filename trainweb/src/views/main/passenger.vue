@@ -60,6 +60,7 @@ export default defineComponent({
   name: "passenger-view",
   setup() {
     const PASSENGER_TYPE_ARRAY = window.PASSENGER_TYPE_ARRAY;
+    // 对reactive数组重新赋值，会让其失去响应式特性。
     const visible = ref(false);
     let passenger = ref({
       id: undefined,
@@ -99,6 +100,7 @@ export default defineComponent({
         dataIndex: 'operation'
       }
     ];
+
 
     // 打开模态框
     const onAdd = () => {
@@ -150,6 +152,7 @@ export default defineComponent({
           size: pagination.value.pageSize
         };
       }
+      console.log('分页查询')
       loading.value = true;
       axios.get("/member/passenger/query-list", {
         params: {
@@ -159,6 +162,7 @@ export default defineComponent({
       }).then((response) => {
         loading.value = false;
         let data = response.data;
+        console.log('data: ', data)
         if (data.success) {
           passengers.value = data.content.list;
           // 设置分页控件的值
@@ -178,6 +182,7 @@ export default defineComponent({
       });
     };
 
+    // 钩子函数: 界面渲染后执行
     onMounted(() => {
       handleQuery({
         page: 1,

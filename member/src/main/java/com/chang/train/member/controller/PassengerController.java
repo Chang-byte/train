@@ -38,9 +38,15 @@ public class PassengerController {
 
     @GetMapping("/query-list")
     public CommonResp<PageResp<PassengerQueryResp>> queryList(@Valid PassengerQueryReq req) {
-        Long id = LoginMemberContext.getId();
-        req.setMemberId(id);
+        req.setMemberId(LoginMemberContext.getId());
         PageResp<PassengerQueryResp> list = passengerService.queryList(req);
-         return new CommonResp<>(list);
+        System.out.println(list);
+        return new CommonResp<>(list);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public CommonResp<Object> delete(@PathVariable Long id) {
+        passengerService.delete(id);
+        return new CommonResp<>();
     }
 }
