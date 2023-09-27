@@ -25,8 +25,6 @@ token: {{token}}
 
 
 ###
-POST http://localhost:8000/member/passenger/query-list
-Content-Type: application/json
+GET http://localhost:8000/member/passenger/query-list?page=1&size=2
+Accept: application/json
 token: {{token}}
-#token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYmYiOjE2OTU3OTI1NTEsIm1vYmlsZSI6IjEzMDAwMDAwMDAxIiwiaWQiOjE3MDY5MDM3ODM1NjY2MTA0MzIsImV4cCI6MTY5NTg3ODk1MSwiaWF0IjoxNjk1NzkyNTUxfQ.KOgRagpgeRQTTWmPqEj-PvsFMawlyr70cOb0C8a-UbM
-

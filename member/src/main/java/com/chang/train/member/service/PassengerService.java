@@ -69,6 +69,7 @@ public class PassengerService {
 
         LOG.info("查询页码：{}", req.getPage());
         LOG.info("每页条数：{}", req.getSize());
+        // 分页是从1开始的。 对这句往下遇到的第一个sql做拦截，增加Limit操作。
         PageHelper.startPage(req.getPage(), req.getSize());
         List<Passenger> passengerList = passengerMapper.selectByExample(passengerExample);
 
