@@ -48,8 +48,10 @@ export default defineComponent({
   setup() {
     const selectedKeys = ref([]);
 
+    // 监控路由的变化。
     watch(() => router.currentRoute.value.path, (newValue) => {
       console.log('watch', newValue);
+      // 先清空，然后再push进去。
       selectedKeys.value = [];
       selectedKeys.value.push(newValue);
     }, {immediate: true});

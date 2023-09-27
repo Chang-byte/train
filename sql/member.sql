@@ -6,7 +6,7 @@ create table `member`
     primary key (`id`),
     unique key `mobile_unique` (`mobile`)
 ) engine=innodb default charset=utf8mb4 comment='会员';
-
+# 因为会员也可以给其他人买票，所以，我们单独设计一个乘客表。
 drop table if exists `passenger`;
 create table `passenger`
 (
@@ -18,7 +18,7 @@ create table `passenger`
     `create_time` datetime(3) comment '新增时间',
     `update_time` datetime(3) comment '修改时间',
     primary key (`id`),
-    index         `member_id_index` (`member_id`)
+    index         `member_id_index` (`member_id`) -- 普通索引
 ) engine=innodb default charset=utf8mb4 comment='乘车人';
 
 drop table if exists `ticket`;
@@ -28,7 +28,7 @@ create table `ticket`
     `member_id`      bigint      not null comment '会员id',
     `passenger_id`   bigint      not null comment '乘客id',
     `passenger_name` varchar(20) comment '乘客姓名',
-    `train_date`     date        not null comment '日期',
+    `train_date`     date        not n ull comment '日期',
     `train_code`     varchar(20) not null comment '车次编号',
     `carriage_index` int         not null comment '箱序',
     `seat_row`       char(2)     not null comment '排号|01, 02',

@@ -28,7 +28,14 @@ const routes = [
         component: Main,
         meta: { // 自定义元数据
             loginRequire: true
-        }
+        },
+        children: [{
+            path: 'welcome',
+            component: () => import('../views/main/welcome.vue'),
+        }, {
+            path: 'passenger',
+            component: () => import('../views/main/passenger.vue'),
+        }]
     }
 ]
 
@@ -46,7 +53,7 @@ const router = createRouter({
     routes
 })
 
-// 路由登录拦截url 发生变化的时候做一个拦截。
+// 路由登录拦截url 发生变化的时候做一个拦截。是否需要登录。
 router.beforeEach((to, from, next) => {
     // 要对meta.loginRequire属性做监控拦截，所有的请求都会console.log() 日志。
     // 但是只有返回true, 才走下面的拦截。

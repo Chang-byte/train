@@ -35,16 +35,7 @@
             <optional>true</optional>
         </dependency>
 
-        <dependency>
-            <groupId>com.chang</groupId>
-            <artifactId>common</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-web</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
+<!--        一定要注意依赖管理。 不能加上web依赖。-->
     </dependencies>
 
 </project>

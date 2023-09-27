@@ -16,7 +16,7 @@ Content-Type: application/json
   "mobile": "13000000001"
 }
 
-###
+###  使用Idea自带的HttpClient记住登录的信息。
 POST http://localhost:8000/member/member/login
 Content-Type: application/json
 

@@ -79,6 +79,12 @@ public class MemberController {
     public CommonResp<MemberLoginResp> login(@Valid @RequestBody MemberLoginReq req) {
         MemberLoginResp resp = memberService.login(req);
         return new CommonResp<>(resp);
+        /**
+         * 使用线程本地变量。
+         * 在接口的入口获取会员的信息，并放到线程本地变量，则在Controller、service都可以
+         * 直接从线程本地变量中获取会员信息，而不用再去从数据库中查询。
+         * 因为好多都需要memberId，放在common模块中。
+         */
     }
 
 
