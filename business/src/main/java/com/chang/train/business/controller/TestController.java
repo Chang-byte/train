@@ -1,4 +1,4 @@
-package com.chang.train.bussiness.controller;
+package com.chang.train.business.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

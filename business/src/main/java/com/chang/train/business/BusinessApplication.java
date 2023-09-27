@@ -1,4 +1,4 @@
-package com.chang.train.bussiness;
+package com.chang.train.business;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.env.ConfigurableEnvironment;
 
 /**
- * @title: BussinessApplication
+ * @title: BusinessApplication
  * @Author Chang
  * @Date: 2023-09-27 19:09
  * @Version 1.0
@@ -18,11 +18,11 @@ import org.springframework.core.env.ConfigurableEnvironment;
 @SpringBootApplication
 @ComponentScan("com.chang")
 @MapperScan("com.chang.train.*.mapper")
-public class BussinessApplication {
-    private static final Logger LOG = LoggerFactory.getLogger(BussinessApplication.class);
+public class BusinessApplication {
+    private static final Logger LOG = LoggerFactory.getLogger(BusinessApplication.class);
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext run = SpringApplication.run(BussinessApplication.class, args);
+        ConfigurableApplicationContext run = SpringApplication.run(BusinessApplication.class, args);
 
         // 获取配置文件里面的参数
         ConfigurableEnvironment environment = run.getEnvironment();
