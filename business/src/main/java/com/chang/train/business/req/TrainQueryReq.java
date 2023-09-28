@@ -2,11 +2,11 @@ package com.chang.train.business.req;
 
 import com.chang.train.req.PageReq;
 
-public class StationQueryReq extends PageReq {
+public class TrainQueryReq extends PageReq {
 
     @Override
     public String toString() {
-        return "StationQueryReq{" +
+        return "TrainQueryReq{" +
                 "} " + super.toString();
     }
 }

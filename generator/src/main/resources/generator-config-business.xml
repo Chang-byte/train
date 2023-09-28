@@ -42,7 +42,8 @@
                              type="XMLMAPPER"/>
         <!--        todo 数据库下的哪一张表，修改表明，也需要修改。-->
         <!--        <table tableName="member" domainObjectName="Member"/>-->
-        <table tableName="station" domainObjectName="Station"/>
+        <!--        <table tableName="station" domainObjectName="Station"/>-->
+        <table tableName="train_seat" domainObjectName="TrainSeat"/>
         <!--                <table tableName="ticket" domainObjectName="Ticket"/>-->
     </context>
 </generatorConfiguration>
