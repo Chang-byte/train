@@ -10,6 +10,8 @@ import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/admin/train")
 public class TrainAdminController {
@@ -26,6 +28,16 @@ public class TrainAdminController {
     @GetMapping("/query-list")
     public CommonResp<PageResp<TrainQueryResp>> queryList(@Valid TrainQueryReq req) {
         PageResp<TrainQueryResp> list = trainService.queryList(req);
+        return new CommonResp<>(list);
+    }
+
+    /**
+     * 查询所有的火车
+     * @return
+     */
+    @GetMapping("/query-all")
+    public CommonResp<List<TrainQueryResp>> queryList() {
+        List<TrainQueryResp> list = trainService.queryAll();
         return new CommonResp<>(list);
     }
 

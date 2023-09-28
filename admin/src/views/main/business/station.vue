@@ -31,10 +31,10 @@
         <a-input v-model:value="station.name"/>
       </a-form-item>
       <a-form-item label="站名拼音">
-        <a-input v-model:value="station.namePinyin"/>
+        <a-input v-model:value="station.namePinyin" disabled/>
       </a-form-item>
       <a-form-item label="站名拼音首字母">
-        <a-input v-model:value="station.namePy"/>
+        <a-input v-model:value="station.namePy" disabled/>
       </a-form-item>
     </a-form>
   </a-modal>
@@ -87,6 +87,15 @@ export default defineComponent({
       }
     ];
 
+    // 当表单中的车站的名称发生改变时，修改对应的拼音。
+    // 使用pinyin-pro的库
+    watch(() => station.value.name, ()=>{
+      if (Tool.isNotEmpty(dailyTrainStation.value.name)) {
+        station.value.namePinyin = pinyin(station.value.name, { toneType: 'none'}).replaceAll(" ", "");
+      } else {
+        station.value.namePinyin = "";
+      }
+    }, {immediate: true});
     const onAdd = () => {
       station.value = {};
       visible.value = true;
