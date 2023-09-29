@@ -1,9 +1,8 @@
-package com.chang.train.batch;
+package com.chang.train.batch.config;
 
 import com.chang.train.batch.job.TestJob;
 import org.quartz.*;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 /**
  * @title: QuartzConfig
@@ -11,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
  * @Date: 2023-09-29 14:36
  * @Version 1.0
  */
-@Configuration
+//@Configuration
 public class QuartzConfig {
 
 
